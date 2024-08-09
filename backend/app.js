@@ -25,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(home)
 app.use(adminRoutes)
 app.use(adminHomeRoutes)
+app.use('/admin/dashboard/', productRoutes)
 
 const PORT = process.env.PORT || 5000;
 

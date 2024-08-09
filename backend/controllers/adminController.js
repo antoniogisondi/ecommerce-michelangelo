@@ -19,6 +19,7 @@ exports.registerAdmin = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
         const admin = await Admin.create({ username, password: hashedPassword, email });
         res.status(201).json(admin);
+        return res.redirect('/admin/dashboard');
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
